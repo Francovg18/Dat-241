@@ -1,45 +1,37 @@
-#Pregunta 10
 import multiprocessing as mp
 
-def generate_series(start, end):
-    return [2 * i for i in range(start, end)]
+def generar_serie(inicio, fin):
+    return [2 * i for i in range(inicio, fin)]
 
-def main(M, N):
-    # Calcular la cantidad de términos por procesador
-    terms_per_proc = N // M
-    processes = []
-    results = []
+def principal(M, N):
+    terminos_por_proc = N // M
+    procesos = []
+    resultados = []
 
     # Crear una cola para recibir los resultados
-    result_queue = mp.Queue()
+    cola_resultados = mp.Queue()
 
     for i in range(M):
-        start = i * terms_per_proc + 1  # Comenzar desde 1 para la multiplicación por 2
-        end = start + terms_per_proc if i != M - 1 else N + 1  # +1 para incluir el último término
+        inicio = i * terminos_por_proc + 1  
+        fin = inicio + terminos_por_proc if i != M - 1 else N + 1  # +1 para incluir el último término
 
-        # Crear y arrancar el proceso
-        p = mp.Process(target=lambda q, s, e: q.put(generate_series(s, e)), args=(result_queue, start, end))
-        processes.append(p)
+        p = mp.Process(target=lambda q, s, e: q.put(generar_serie(s, e)), args=(cola_resultados, inicio, fin))
+        procesos.append(p)
         p.start()
 
-    # Recoger los resultados de los procesos
-    for _ in processes:
-        results.extend(result_queue.get())
+    for _ in procesos:
+        resultados.extend(cola_resultados.get())
 
-    # Asegurarse de que todos los procesos han terminado
-    for p in processes:
+    for p in procesos:
         p.join()
 
-    # Ordenar los resultados para mantener el orden correcto
-    results.sort()
+    resultados.sort()
 
-    return results
+    return resultados
 
 if __name__ == "__main__":
-    M = 4  # Número de procesadores
-
-    # Solicitar al usuario el número de términos
+    M = 4  
     N = int(input("Introduce el número de términos en la serie: "))
 
-    series = main(M, N)
-    print(*series)
+    serie = principal(M, N)
+    print(*serie)
