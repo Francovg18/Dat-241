@@ -1,6 +1,3 @@
-//6.-En MPI realizar el cálculo de PI
-//mpicc pregunta6.c -o pregunta6 -lm
-
 #include <mpi.h>
 #include <stdio.h>
 #include <math.h>
