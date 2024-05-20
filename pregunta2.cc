@@ -1,5 +1,3 @@
-//Ejercicio 1 en c++
-//g++ calculadora.cpp -o calculadora
 #include <iostream>
 
 float suma(float *num1, float *num2) {
@@ -11,7 +9,6 @@ float resta(float *num1, float *num2) {
 }
 
 float multiplicacion(float *num1, float *num2) {
-    // Manejo de casos especiales para números negativos
     if (*num1 == 0 || *num2 == 0) {
         return 0;
     } else if (*num1 < 0 && *num2 < 0) {
@@ -36,7 +33,6 @@ float division(float *num1, float *num2) {
         return 0;
     }
 
-    // Casos especiales
     if (*num1 < 0 && *num2 < 0) {
         *num1 = -*num1;
         *num2 = -*num2;
