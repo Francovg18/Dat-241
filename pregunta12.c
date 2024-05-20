@@ -1,8 +1,3 @@
-//12. Realice el cálculo de Fibonacci con MPI  mediante un
-//procesador MASTER que solicite cada termino a los
-//procesadores SLAVE
-//E_ mpicc pregunta12.c -o pregunta12 -lm
-//mpirun -np 4 ./pregunta12
 #include <mpi.h>
 #include <stdio.h>
 #include <math.h>
