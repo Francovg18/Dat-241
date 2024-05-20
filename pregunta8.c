@@ -1,6 +1,3 @@
-//8. Genere la serie 2, 4, 6, 8, 10, 12, 14, 16, 18… en M
-//vectores(procesadores) para N términos con OPENMP
-//gcc -fopenmp pregunta8.c -o pregunta8
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
