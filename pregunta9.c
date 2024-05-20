@@ -1,7 +1,3 @@
-//9.-. Genere la serie 2, 4, 6, 8, 10, 12, 14, 16, 18… en M
-//vectores(procesadores) para N términos con MPI
-//E_ mpicc pregunta9.c -o pregunta9
-//mpirun -np 4 pregunta9
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,30 +14,22 @@ int main(int argc, char** argv) {
     if (rango == 0) {
         printf("Introduce el número de términos (N): ");
         scanf("%d", &N);
-
-        // Asignar memoria para el arreglo de datos globales
         datos_globales = (int*)malloc(N * sizeof(int));
     }
 
-    // Difundir N a todos los procesos
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    // Calcular el número de elementos que manejará cada proceso
     local_N = N / tamaño;
     if (rango < N % tamaño) {
         local_N++;
     }
-
-    // Asignar memoria para el arreglo de datos locales
     datos_locales = (int*)malloc(local_N * sizeof(int));
 
-    // Cada proceso genera su parte de la serie
     int inicio = rango * (N / tamaño) + (rango < N % tamaño ? rango : N % tamaño);
     for (int i = 0; i < local_N; i++) {
         datos_locales[i] = 2 * (inicio + i + 1);
     }
 
-    // Recolectar todos los arreglos de datos locales en el arreglo de datos globales en el rango 0
     int *cuentas_recepcion = NULL;
     int *desplazamientos = NULL;
 
