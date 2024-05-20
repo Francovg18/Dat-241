@@ -9,7 +9,6 @@ float resta(float *num1, float *num2) {
 }
 
 float multiplicacion(float *num1, float *num2) {
-    // Manejo de casos especiales para números negativos
     if (*num1 == 0 || *num2 == 0) {
         return 0;
     } else if (*num1 < 0 && *num2 < 0) {
@@ -28,13 +27,11 @@ float multiplicacion(float *num1, float *num2) {
 }
 
 float division(float *num1, float *num2) {
-    // Verificar si num2 es igual a 0
     if (*num2 == 0) {
         printf("No se puede dividir entre 0.\n");
         return 0;
     }
 
-    // Casos especiales
     if (*num1 < 0 && *num2 < 0) {
         *num1 = -*num1;
         *num2 = -*num2;
