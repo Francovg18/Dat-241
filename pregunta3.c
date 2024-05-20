@@ -1,5 +1,3 @@
-//3. En openMP realice la multiplicación y división en base a sumas y restas.
-// gcc -fopenmp pregunta3.c -o pregunta3
 #include <stdio.h>
 #include <omp.h>
 
