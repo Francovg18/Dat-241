@@ -1,6 +1,3 @@
-//Realizar en mpi la multiplicacion de una matriz NxN con un vector N
-//mpicc pregunta5.c -o pregunta5
-//mpirun -np 4 ./pregunta5
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
