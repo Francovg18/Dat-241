@@ -1,0 +1,7 @@
+La taxonomía de Flynn clasifica los sistemas de cómputo según la cantidad de instrucciones y datos que pueden procesar simultáneamente. Hay cuatro categorías en la taxonomía de Flynn: SISD, SIMD, MISD,  MIMD 
+OPENMP (Open Multi-Processing): SIMD o MIMD 
+OPENMP proporciona una API para la programación de múltiples hilos de ejecución en una máquina de memoria compartida (SIMD). Sin embargo, también puede utilizarse para paralelizar tareas en sistemas de memoria distribuida utilizando directivas #pragma y cláusulas específicas (MIMD).
+MPI (Message Passing Interface): MIMD.
+MPI es un estándar para la comunicación entre procesos paralelos en sistemas de memoria distribuida. Permite que múltiples procesos independientes ejecuten diferentes instrucciones en paralelo mientras intercambian datos a través de mensajes, lo que lo hace un caso de MIMD.
+Multiprocessing (en Python): MIMD.
+Multiprocessing en Python es una biblioteca que permite la ejecución de múltiples procesos en paralelo. Estos procesos pueden ser independientes entre sí y ejecutar diferentes instrucciones simultáneamente, lo que se ajusta a la clasificación de MIMD.
