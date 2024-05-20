@@ -2,10 +2,6 @@ import multiprocessing
 from math import sqrt
 
 def fibonacci(n):
-    """
-    Función para calcular el n-ésimo término de la secuencia de Fibonacci
-    utilizando la fórmula an = (1/sqrt(5)) * ((1+sqrt(5))/2)^n - (1/sqrt(5)) * ((1-sqrt(5))/2)^n
-    """
     sqrt5 = sqrt(5)
     phi = (1 + sqrt5) / 2
     psi = (1 - sqrt5) / 2
